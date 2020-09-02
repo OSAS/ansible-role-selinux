@@ -33,6 +33,9 @@
   template:
     dest: "/etc/selinux/{{ item }}"
     src: "{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
   with_items:
   - config
   - semanage.conf
