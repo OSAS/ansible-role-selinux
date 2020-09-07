@@ -4,25 +4,25 @@
     pkg: "{{ item }}"
     state: "installed"
   with_items:
-  - selinux-policy-{{ selinux_policy }}
-  # for debugging
-  - setools-console
-  # to have proper logs (normaly installed by default but…)
-  - audit
-  - policycoreutils
+    - selinux-policy-{{ selinux_policy }}
+    # for debugging
+    - setools-console
+    # to have proper logs (normaly installed by default but…)
+    - audit
+    - policycoreutils
 
 - name: Install packages on older distribution
   package:
     pkg: "{{ item }}"
   with_items:
-  - policycoreutils-python
+    - policycoreutils-python
   when: ansible_distribution_major_version|int < 8
 
 - name: Install packages on recent distribution
   package:
     pkg: "{{ item }}"
   with_items:
-  - policycoreutils-python-utils
+    - policycoreutils-python-utils
   when: ansible_os_family == 'Fedora' or ansible_distribution_major_version|int >= 8
 
 - name: Set state to enforcing
@@ -37,8 +37,8 @@
     group: root
     mode: 0644
   with_items:
-  - config
-  - semanage.conf
+    - config
+    - semanage.conf
 
 - name: Start auditd service
   service:
