@@ -1,6 +1,7 @@
 ---
 galaxy_info:
-  author: Michael Scherer
+  maintainer: Michael Scherer
+  author: osci
   description: Ansible module to enforce SELinux policies
   company: Red Hat
   license: MIT
